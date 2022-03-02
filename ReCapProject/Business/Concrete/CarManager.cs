@@ -11,7 +11,7 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-
+        //Business ın bildigi tek sey ICarDal. Her sey olabilir. Constructor olusturma nedeni In Memory 'den database e gectiginde sorun yasanmamasi.
         ICarDal _carDal;
         public CarManager(ICarDal carDal)
         {
