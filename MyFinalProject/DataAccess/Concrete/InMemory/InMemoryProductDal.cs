@@ -3,15 +3,16 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concrete.InMemory
+namespace DataAccess.Concrete.EfProductDal
 {
-    public class InMemoryProductDal : IProductDal
+    public class EfProductDal : IProductDal
     {
         List<Product> _products;
-        public InMemoryProductDal()
+        public EfProductDal()
         {
 
             //Oracle,Sql Server, Postgres, Mongodb den geliyormuş gibi simüle ediyoruz.
@@ -65,6 +66,14 @@ namespace DataAccess.Concrete.InMemory
            return _products.Where(p => p.CategoryId == categoryId).ToList();
         }
 
-      
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product Get(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

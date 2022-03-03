@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
-using DataAccess.Concrete.InMemory;
+using DataAccess.Concrete.EfProductDal;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
+
+    //Yapım değişmedi. Çünkü hiç entity framework e hic bagimli olmadım. Avantajı bu.
     public class ProductManager : IProductService
     {
         IProductDal _productDal;
@@ -26,6 +28,16 @@ namespace Business.Concrete
             //vsvs
             return _productDal.GetAll();
 
+        }
+
+        public List<Product> GetAllByCategoryId(int id)
+        {
+            return _productDal.GetAll(p=>p.CategoryId==id);
+        }
+
+        public List<Product> GetByUnitPrice(decimal min, decimal max)
+        {
+            return _productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max);
         }
     }
 }
