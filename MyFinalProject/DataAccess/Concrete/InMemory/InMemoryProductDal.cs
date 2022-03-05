@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EfProductDal
 {
-    public class EfProductDal : IProductDal
+    public class InMemoryProductDal : IProductDal
     {
         List<Product> _products;
-        public EfProductDal()
+        public InMemoryProductDal()
         {
 
             //Oracle,Sql Server, Postgres, Mongodb den geliyormuş gibi simüle ediyoruz.
@@ -72,6 +73,11 @@ namespace DataAccess.Concrete.EfProductDal
         }
 
         public Product Get(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
         {
             throw new NotImplementedException();
         }

@@ -19,7 +19,8 @@ namespace DataAccess.Concrete.EntityFramework
             public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }  // Benim Product'ımı o databasedeki Products'a bağla.
-    
+        public DbSet<Order> Orders { get; set; }
+
 
     }
     }
